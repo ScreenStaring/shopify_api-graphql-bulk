@@ -32,6 +32,9 @@ module ShopifyAPI
 
       class Executor            # :nodoc:
         def initialize(shop, token, options)
+          raise ArgumentError, "shop required" if shop.to_s.strip.empty?
+          raise ArgumentError, "token required" if token.to_s.strip.empty?
+
           @gid = TinyGID.new("shopify")
 
           @create = Bulk::Create.new(shop, token, options)
