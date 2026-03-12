@@ -86,6 +86,12 @@ RSpec.describe ShopifyAPI::GraphQL::Bulk, :vcr do
       )
     end
 
+    it "raises an error when the result cannot be canceled" do
+      expect {
+        subject.cancel(ENV.fetch("BULK_SUCCESS_ID"))
+      }.to raise_error(ShopifyAPI::GraphQL::Bulk::Error, /cancel request failed/)
+    end
+
     # TODO
     # it "returns an Operation with the parsed partial result data" do
     # end

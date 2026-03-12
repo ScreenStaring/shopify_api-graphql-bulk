@@ -1,0 +1,104 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<Host>.myshopify.com/admin/api/2026-01/graphql.json
+    body:
+      encoding: UTF-8
+      string: '{"query":"fragment BulkOperationFields on BulkOperation {\n  id\n  status\n  errorCode\n  objectCount\n  partialDataUrl\n  rootObjectCount\n  url\n  createdAt\n  completedAt\n}\n\nmutation
+        bulkOperationCancel($id: ID!) {\n  bulkOperationCancel(id: $id) {\n    bulkOperation
+        {\n      ...BulkOperationFields\n    }\n    userErrors {\n      field\n      message\n    }\n  }\n}\n","variables":{"id":"gid://shopify/BulkOperation/6291584614453"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - ShopifyAPI::GraphQL::Tiny v1.0.1 (Ruby v3.3.5)
+      Content-Type:
+      - application/json
+      X-Shopify-Access-Token:
+      - "<X-Shopify-Access-Token>"
+      X-Graphql-Cost-Include-Fields:
+      - 'true'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 12 Mar 2026 16:57:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding,Sec-Fetch-Site
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '3010427'
+      X-Stats-Apipermissionid:
+      - '309825994805'
+      X-Shopify-Api-Version:
+      - 2026-01
+      Content-Language:
+      - en
+      X-Shopify-Api-Gql-Engine:
+      - cardinal
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - 4cd5bbbe-7e99-4c9e-a3d8-f75cb2421ddf-1773334649
+      Server-Timing:
+      - cfRequestDuration;dur=185.999870
+      - processing;dur=63, verdict_flag_enabled;desc="count=15";dur=0.877, graphql;desc="admin/mutation/other",
+        _y;desc="61302716-e148-480d-b77d-0d84e5124ca5", _s;desc="69b68fd6-3ced-4337-9d42-af115d44db62"
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net
+        https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
+        /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=4cd5bbbe-7e99-4c9e-a3d8-f75cb2421ddf-1773334649;
+        report-to shopify-csp'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      Reporting-Endpoints:
+      - shopify-csp="/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=4cd5bbbe-7e99-4c9e-a3d8-f75cb2421ddf-1773334649"
+      X-Dc:
+      - gcp-us-west1,gcp-us-central1,gcp-us-central1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=6Kbf0Yjbb41Z0Z%2B8TPcs5sXOFy2N%2FtUvni8cj1PkL05dNgGnfv%2Fh%2FlDeoEdTA0rNkSinzX5g%2Bxawwn8LHdidiU6kt9%2Bbcro5R2wD4QAE9HWbrZCGRi4A0dp3BmqO1zXri1fNoHVaDmjc"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9db456976e53cc9f-LAX
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"bulkOperationCancel":{"bulkOperation":{"id":"gid://shopify/BulkOperation/6291584614453","status":"COMPLETED","errorCode":null,"objectCount":"2","partialDataUrl":null,"rootObjectCount":"2","url":"https://storage.googleapis.com/shopify-tiers-assets-prod-us-east1/bulk-operation-outputs/9iws1mna9g6im7nbqjb4gyv3yvdu-final?GoogleAccessId=assets-us-prod%40shopify-tiers.iam.gserviceaccount.com&Expires=1773896028&Signature=irfBbmHNT3hbDPE%2F8UBj1%2Bn1%2Fu6NZ7B9v3My%2B4X76uCOhCCaCiZWF6S1IySX6hLP0o21uDWMT2V06usGnGnrlsw7h0562rc%2BGwx6P1Mx3wAu6DMxGXZD9xNrnJ2MCSo9OKcNw4sNw%2FpXGgro91AtZUlDG6%2B2YghwtqlmbL0P57cwxbuptTUxDICCRqu6kI0pXh0CwCJ%2FiD8bKpzqeIo0jgD%2F4hoYdVQZDEz%2F7GPHwrMWDoXgK1iglg5b0slesyFPP%2FHWV%2FDfOvX5ymjqpifAoHYvLUa%2Bc40q449dviy8iryW1SLvLMFUKYueVK4NxDtgii7qhDOvnvQrBGfENoziAQ%3D%3D&response-content-disposition=attachment%3B+filename%3D%22bulk-6291584614453.jsonl%22%3B+filename%2A%3DUTF-8%27%27bulk-6291584614453.jsonl&response-content-type=application%2Fjsonl","createdAt":"2026-03-12T04:53:46Z","completedAt":"2026-03-12T04:53:48Z"},"userErrors":[{"field":null,"message":"A
+        bulk operation cannot be canceled when it is completed"}]}},"extensions":{"cost":{"requestedQueryCost":10,"actualQueryCost":10,"throttleStatus":{"maximumAvailable":2000.0,"currentlyAvailable":1990,"restoreRate":100.0},"fields":[{"path":["bulkOperationCancel","bulkOperation","id"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperationCancel","bulkOperation","status"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperationCancel","bulkOperation","errorCode"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperationCancel","bulkOperation","objectCount"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperationCancel","bulkOperation","partialDataUrl"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperationCancel","bulkOperation","rootObjectCount"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperationCancel","bulkOperation","url"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperationCancel","bulkOperation","createdAt"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperationCancel","bulkOperation","completedAt"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperationCancel","bulkOperation"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperationCancel","userErrors","field"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperationCancel","userErrors","message"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperationCancel","userErrors"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperationCancel"],"definedCost":10,"requestedTotalCost":10,"requestedChildrenCost":0}]}}}'
+  recorded_at: Thu, 12 Mar 2026 16:57:29 GMT
+recorded_with: VCR 6.4.0
