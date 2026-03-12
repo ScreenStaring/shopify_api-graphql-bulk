@@ -54,9 +54,12 @@ p operation.url
 # etc...
 
 if operation.completed?
-  operation.results[:data].each { }
-  operation.results[:errors].each { }
-  operation.results[:user_errors].each { }
+  operation.results.each do |result|
+    # Each element is a Hash with the appropriate response, if any
+    result.data.each { }
+    result.errors.each { }
+    result.user_errors.each { }
+  end
 end
 ```
 

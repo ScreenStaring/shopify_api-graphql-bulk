@@ -122,9 +122,10 @@ RSpec.describe ShopifyAPI::GraphQL::Bulk, :vcr do
         op = subject.result(ENV.fetch("BULK_FAILED_ID_USER_ERRORS"))
 
         expect(op.results.size).to eq 1
-        expect(op.results).to eq([
+        expect(op.results[0]).to have_attributes(
           :line => 0,
           :data => {},
+          :errors => [],
           :user_errors => [
             {
               :field => %w[query],
@@ -135,17 +136,19 @@ RSpec.describe ShopifyAPI::GraphQL::Bulk, :vcr do
               :message =>"Variable $identifier of type ProductSetIdentifiers was provided invalid value"
             }
           ]
-        ])
+        )
       end
 
       it "returns parsed errors" do
         op = subject.result(ENV.fetch("BULK_FAILED_ID_ERRORS"))
 
         expect(op.results.size).to eq 1
-        expect(op.results).to eq([
+        expect(op.results[0]).to have_attributes(
           :line => 0,
-          :errors => [:message => "OptionSetInput requires at least one of id, name"]
-        ])
+          :data => nil,
+          :errors => [{ :message => "OptionSetInput requires at least one of id, name" }],
+          :user_errors => []
+        )
       end
     end
 
@@ -170,28 +173,30 @@ RSpec.describe ShopifyAPI::GraphQL::Bulk, :vcr do
         op = subject.result(ENV.fetch("BULK_SUCCESS_ID"))
 
         expect(op.results.size).to eq 2
-        expect(op.results).to match([
-          {
-            :line => 0,
-            :data => {
-              :product => {
-                :id => match(%r{\Agid://shopify/Product/\d+\z}),
-                :handle => be_a(String),
-                :tags => []
-              }
+        expect(op.results[0]).to have_attributes(
+          :line => 0,
+          :data => {
+            :product => {
+              :id => match(%r{\Agid://shopify/Product/\d+\z}),
+              :handle => be_a(String),
+              :tags => []
             }
           },
-          {
-            :line => 1,
-            :data => {
-              :product => {
-                :id => match(%r{\Agid://shopify/Product/\d+\z}),
-                :handle => be_a(String),
-                :tags => []
-              }
+          :errors => [],
+          :user_errors => []
+        )
+        expect(op.results[1]).to have_attributes(
+          :line => 1,
+          :data => {
+            :product => {
+              :id => match(%r{\Agid://shopify/Product/\d+\z}),
+              :handle => be_a(String),
+              :tags => []
             }
-          }
-        ])
+          },
+          :errors => [],
+          :user_errors => []
+        )
       end
 
       it "returns an Operation that does not contain the parsed data" do

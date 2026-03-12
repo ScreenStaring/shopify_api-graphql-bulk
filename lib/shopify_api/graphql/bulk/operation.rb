@@ -2,6 +2,8 @@
 
 require "time"
 
+require_relative "operation/result"
+
 module ShopifyAPI
   module GraphQL
     module Bulk
@@ -58,39 +60,10 @@ module ShopifyAPI
 
           response.body.each_line do |line|
             row = JSON.parse(line)
-            entry = { :line => row["__lineNumber"] }
-
-            if row.include?("errors")
-              entry[:errors] = row["errors"].map { |e| { :message => e["message"] } }
-            end
-
-            if row["data"]
-              data = row["data"].values.first
-
-              if data
-                errors = data["userErrors"] || []
-                entry[:user_errors] = errors.map { |e| { :field => e["field"], :message => e["message"] } } if errors.any?
-                entry[:data] = snake_case_keys(data.reject { |k, _| k == "userErrors" })
-              end
-            end
-
-            results << entry
+            results << Operation::Result.new(row)
           end
 
           results
-        end
-
-        def snake_case_keys(object)
-          case object
-          when Hash
-            object.each_with_object({}) do |(key, value), result|
-              result[Strings::Case.snakecase(key).to_sym] = snake_case_keys(value)
-            end
-          when Array
-            object.map { |value| snake_case_keys(value) }
-          else
-            object
-          end
         end
       end
     end
