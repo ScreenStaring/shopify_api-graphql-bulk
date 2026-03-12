@@ -1,0 +1,172 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://<Host>.myshopify.com/admin/api/2026-01/graphql.json
+    body:
+      encoding: UTF-8
+      string: '{"query":"fragment BulkOperationFields on BulkOperation {\n  id\n  status\n  errorCode\n  objectCount\n  partialDataUrl\n  rootObjectCount\n  url\n  createdAt\n  completedAt\n}\n\nquery($id:
+        ID!) {\n  bulkOperation(id: $id) {\n    ...BulkOperationFields\n  }\n}\n","variables":{"id":"gid://shopify/BulkOperation/6268712353845"}}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - ShopifyAPI::GraphQL::Tiny v1.0.1 (Ruby v3.3.5)
+      Content-Type:
+      - application/json
+      X-Shopify-Access-Token:
+      - "<X-Shopify-Access-Token>"
+      X-Graphql-Cost-Include-Fields:
+      - 'true'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 12 Mar 2026 06:01:48 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding,Sec-Fetch-Site
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Stats-Userid:
+      - ''
+      X-Stats-Apiclientid:
+      - '3010427'
+      X-Stats-Apipermissionid:
+      - '309825994805'
+      X-Shopify-Api-Version:
+      - 2026-01
+      Content-Language:
+      - en
+      X-Shopify-Api-Gql-Engine:
+      - cardinal
+      Strict-Transport-Security:
+      - max-age=7889238
+      X-Request-Id:
+      - e1c72274-fc5c-49b7-b994-5a85eab1b1ec-1773295308
+      Server-Timing:
+      - cfRequestDuration;dur=138.999939
+      - ipv6
+      - processing;dur=56, verdict_flag_enabled;desc="count=13";dur=1.451, graphql;desc="admin/query/other",
+        _y;desc="f2355c85-4c54-4f0f-8438-d3ae632e0ef3", _s;desc="1de762a3-b74c-479e-935f-84a2c3455014"
+      Content-Security-Policy:
+      - 'default-src ''self'' data: blob: ''unsafe-inline'' ''unsafe-eval'' https://*
+        shopify-pos://*; block-all-mixed-content; child-src ''self'' https://* shopify-pos://*;
+        connect-src ''self'' wss://* https://*; frame-ancestors ''none''; img-src
+        ''self'' data: blob: https:; script-src https://cdn.shopify.com https://cdn.shopifycdn.net
+        https://checkout.pci.shopifyinc.com https://checkout.pci.shopifyinc.com/build/04ed4e1/card_fields.js
+        https://api.stripe.com https://mpsnare.iesnare.com https://appcenter.intuit.com
+        https://www.paypal.com https://js.braintreegateway.com https://c.paypal.com
+        https://maps.googleapis.com https://www.google-analytics.com https://v.shopify.com
+        ''self'' ''unsafe-inline'' ''unsafe-eval''; upgrade-insecure-requests; report-uri
+        /csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=e1c72274-fc5c-49b7-b994-5a85eab1b1ec-1773295308;
+        report-to shopify-csp'
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      Reporting-Endpoints:
+      - shopify-csp="/csp-report?source%5Baction%5D=query&source%5Bapp%5D=Shopify&source%5Bcontroller%5D=admin%2Fgraphql&source%5Bsection%5D=admin_api&source%5Buuid%5D=e1c72274-fc5c-49b7-b994-5a85eab1b1ec-1773295308"
+      X-Dc:
+      - gcp-us-west1,gcp-us-central1,gcp-us-central1
+      Alt-Svc:
+      - h3=":443"; ma=86400
+      Cf-Cache-Status:
+      - DYNAMIC
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=DmiHNfvniD6n4yz9T7Bs2L5SiziINdvUKJ%2BGGhgA7BhBuBQMU7qaZRoBvigSTN63jhyoO0EQuPt1IWx3zTpj6yM96Jqvs0Z2IlfAW1lcI1PyKZbPg82X2U06pKDkV%2BQIiuorZaAFzeM9UciF0edgl1rs1OGD"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0.01,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 9db0961bad304d3c-LAX
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"bulkOperation":{"id":"gid://shopify/BulkOperation/6268712353845","status":"COMPLETED","errorCode":null,"objectCount":"1","partialDataUrl":null,"rootObjectCount":"1","url":"https://storage.googleapis.com/shopify-tiers-assets-prod-us-east1/bulk-operation-outputs/d40qhaz8ufg49y73fe10r9g5wlz5-final?GoogleAccessId=assets-us-prod%40shopify-tiers.iam.gserviceaccount.com&Expires=1773518976&Signature=StAZXNEaNGLfZK4XMJT4zwJ1cIUG4KUlsfLVQqXaKWEU%2F%2FXBUpLpy5Y7Pdvcf7gOHhQuP62aXi6uomkc7XBnqshvPgC7LKWnrW%2FfpAx12uHvZWeRQSyQt7HzDopoj1KOsVmIgejtk8uooah6Fvr5L741LLh8Is1NQQQvmvr4cqaGjaHFlO1nJRJWENZbE60vAt%2BavDY4%2F8CqpaqVmrvajcS5rWxBVyIw4cCsH28mLvIN2ZzisOc5cglkDLmr5%2BIWb58FqOE%2Fj008nVnouCwc86ykYuomxqUqRhXOoxbYA%2B0Th%2Fnzb%2FGaGyisU3EgR1b8URRWtTNR%2FgETRR2eN1UAHg%3D%3D&response-content-disposition=attachment%3B+filename%3D%22bulk-6268712353845.jsonl%22%3B+filename%2A%3DUTF-8%27%27bulk-6268712353845.jsonl&response-content-type=application%2Fjsonl","createdAt":"2026-03-07T20:09:35Z","completedAt":"2026-03-07T20:09:36Z"}},"extensions":{"cost":{"requestedQueryCost":1,"actualQueryCost":1,"throttleStatus":{"maximumAvailable":2000.0,"currentlyAvailable":1999,"restoreRate":100.0},"fields":[{"path":["bulkOperation","id"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperation","status"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperation","errorCode"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperation","objectCount"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperation","partialDataUrl"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperation","rootObjectCount"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperation","url"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperation","createdAt"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperation","completedAt"],"definedCost":0,"requestedTotalCost":0,"requestedChildrenCost":0},{"path":["bulkOperation"],"definedCost":1,"requestedTotalCost":1,"requestedChildrenCost":0}]}}}'
+  recorded_at: Thu, 12 Mar 2026 06:01:48 GMT
+- request:
+    method: get
+    uri: https://storage.googleapis.com/shopify-tiers-assets-prod-us-east1/bulk-operation-outputs/d40qhaz8ufg49y73fe10r9g5wlz5-final?Expires=1773518976&GoogleAccessId=assets-us-prod@shopify-tiers.iam.gserviceaccount.com&Signature=StAZXNEaNGLfZK4XMJT4zwJ1cIUG4KUlsfLVQqXaKWEU//XBUpLpy5Y7Pdvcf7gOHhQuP62aXi6uomkc7XBnqshvPgC7LKWnrW/fpAx12uHvZWeRQSyQt7HzDopoj1KOsVmIgejtk8uooah6Fvr5L741LLh8Is1NQQQvmvr4cqaGjaHFlO1nJRJWENZbE60vAt%2BavDY4/8CqpaqVmrvajcS5rWxBVyIw4cCsH28mLvIN2ZzisOc5cglkDLmr5%2BIWb58FqOE/j008nVnouCwc86ykYuomxqUqRhXOoxbYA%2B0Th/nzb/GaGyisU3EgR1b8URRWtTNR/gETRR2eN1UAHg==&response-content-disposition=attachment%3B%20filename=%22bulk-6268712353845.jsonl%22%3B%20filename*=UTF-8%27%27bulk-6268712353845.jsonl&response-content-type=application/jsonl
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.googleapis.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/jsonl
+      X-Guploader-Uploadid:
+      - AGQBYWxiUwtrxihPuSQtOxNAWNMZmpxFJpCTTi8_KGalFoF-XdDWcRp7MgNxxGsD4yRXMqWEcGc48Ec
+      Expires:
+      - Thu, 12 Mar 2026 06:01:48 GMT
+      Date:
+      - Thu, 12 Mar 2026 06:01:48 GMT
+      Cache-Control:
+      - private, max-age=0
+      Last-Modified:
+      - Sat, 07 Mar 2026 20:09:36 GMT
+      Etag:
+      - '"-CKK30P3LjpMDEAI="'
+      X-Goog-Generation:
+      - '1772914176433058'
+      X-Goog-Metageneration:
+      - '2'
+      X-Goog-Stored-Content-Encoding:
+      - identity
+      X-Goog-Stored-Content-Length:
+      - '483'
+      Content-Disposition:
+      - attachment; filename="bulk-6268712353845.jsonl"; filename*=UTF-8''bulk-6268712353845.jsonl
+      X-Goog-Hash:
+      - crc32c=s8QRsg==
+      X-Goog-Component-Count:
+      - '2'
+      X-Goog-Storage-Class:
+      - STANDARD
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '483'
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - UploadServer
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+    body:
+      encoding: UTF-8
+      string: '{"data":{"productSet":{"userErrors":[{"message":"Variable $input of
+        type ProductSetInput! was provided invalid value for productOptions.0.optionName
+        (Field is not defined on OptionSetInput)","field":["query"],"type":"GraphApi::BulkMutationUserError","code":null,"extra_info":null},{"message":"Variable
+        $identifier of type ProductSetIdentifiers was provided invalid value","field":["query"],"type":"GraphApi::BulkMutationUserError","code":null,"extra_info":null}]}},"__lineNumber":0}
+
+        '
+  recorded_at: Thu, 12 Mar 2026 06:01:48 GMT
+recorded_with: VCR 6.4.0
