@@ -9,7 +9,7 @@ require "uri"
 module ShopifyAPI
   module GraphQL
     module Bulk
-      class Create < ShopifyAPI::GraphQL::Request  # :nodoc:
+      class Mutation < ShopifyAPI::GraphQL::Request  # :nodoc:
         FILENAME = "bulk_import.jsonl"
 
         STAGED_UPLOADS_CREATE = <<~GQL

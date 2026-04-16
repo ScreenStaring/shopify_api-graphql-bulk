@@ -37,13 +37,18 @@ module ShopifyAPI
 
           @gid = TinyGID.new("shopify")
 
-          @create = Bulk::Create.new(shop, token, options)
+          @mutation = Bulk::Mutation.new(shop, token, options)
           @cancel = Bulk::Cancel.new(shop, token, options)
+          @query = Bulk::Query.new(shop, token, options)
           @result = Bulk::Result.new(shop, token, options)
         end
 
-        def create(mutation, data = nil, &block)
-          @create.execute(mutation, data, &block)
+        def mutation(mutation, data = nil, &block)
+          @mutation.execute(mutation, data, &block)
+        end
+
+        def query(query, options = nil)
+          @query.execute(query, options)
         end
 
         def result(id, options = nil)
@@ -68,7 +73,8 @@ module ShopifyAPI
   end
 end
 
-require_relative "bulk/create"
+require_relative "bulk/mutation"
+require_relative "bulk/query"
 require_relative "bulk/result"
 require_relative "bulk/cancel"
 require_relative "bulk/operation"
