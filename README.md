@@ -114,4 +114,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ---
 
-Made by [ScreenStaring](http://screenstaring.com)
+Made by [ScreenStaring](https://screenstaring.com)
