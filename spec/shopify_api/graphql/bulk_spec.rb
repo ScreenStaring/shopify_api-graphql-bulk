@@ -44,7 +44,7 @@ RSpec.describe ShopifyAPI::GraphQL::Bulk, :vcr do
     ]
   end
 
-  describe "#create" do
+  describe "#mutation" do
     it "raises an ArgumentError when no bulk data is provided" do
       expect { subject.create(@mutation)  }.to raise_error(ArgumentError, /no data proviced to upload/)
       expect { subject.create(@mutation) { |m| }  }.to raise_error(ArgumentError, /no data proviced to upload/)
