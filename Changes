@@ -1,0 +1,4 @@
+2026-04-16  v0.0.2
+--------------------
+* Add support for executing bulk queries
+* Add #mutation method, which is the same as #create
