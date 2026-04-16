@@ -69,7 +69,7 @@ if operation.completed?
 end
 ```
 
-`#create` also accepts a block:
+`#mutation` also accepts a block:
 
 ```rb
 id = bulk.mutation("productSet") do |args|
