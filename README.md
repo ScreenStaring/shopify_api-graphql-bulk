@@ -1,6 +1,6 @@
 # ShopifyAPI::GraphQL::Bulk
 
-Ruby Gem to Bulk import data using the [Shopify GraphQL Admin Bulk API](https://shopify.dev/docs/api/usage/bulk-operations/imports)
+Ruby Gem to execute mutations and queries using the [Shopify GraphQL Admin Bulk API](https://shopify.dev/docs/api/usage/bulk-operations/imports)
 
 ## Install
 
@@ -17,6 +17,8 @@ gem install "shopify_api-graphql-bulk"
 ```
 
 ## Usage
+
+An [access token](https://shopify.dev/docs/api/usage/authentication#access-tokens-for-the-storefront-api) is required for the shop.
 
 ```rb
 # Mutation parameters. In this example we're using the productSet mutation.
@@ -41,7 +43,11 @@ params = [
 ]
 
 bulk = ShopifyAPI::GraphQL::Bulk.new(shop, token)
-id = bulk.create("productSet", params)
+id = bulk.mutation("productSet", params)
+
+# Or, run a query:
+id = bulk.query(your_query)
+id = bulk.query(your_query, :group_objects => false)
 
 # Wait a bit...
 
@@ -66,7 +72,7 @@ end
 `#create` also accepts a block:
 
 ```rb
-id = bulk.create("productSet") do |args|
+id = bulk.mutation("productSet") do |args|
   args << input1
   args << input2 # etc...
 end
