@@ -47,6 +47,8 @@ module ShopifyAPI
           @mutation.execute(mutation, data, &block)
         end
 
+        alias create mutation
+
         def query(query, options = nil)
           @query.execute(query, options)
         end
