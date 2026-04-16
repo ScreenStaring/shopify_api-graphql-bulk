@@ -68,6 +68,37 @@ RSpec.describe ShopifyAPI::GraphQL::Bulk, :vcr do
     end
   end
 
+  describe "#query" do
+    # TODO: test :group_objects option
+    it "returns an Operation with the result's properties", :vcr => { :match_requests_on => [:uri] } do
+      query=<<-GQL
+        query {
+          products {
+            edges {
+              node {
+                id
+              }
+            }
+          }
+        }
+      GQL
+
+      op = subject.query(query)
+
+      expect(op).to be_created
+      expect(op).to have_attributes(
+        :id => match(%r{\Agid://shopify/BulkOperation/\d+\z}),
+        :error_code => nil,
+        :object_count => "0",
+        :partial_data_url => nil,
+        :root_object_count => "0",
+        :created_at => an_instance_of(Time),
+        :completed_at => nil,
+        :url => nil
+      )
+    end
+  end
+
   describe "#cancel" do
     it "cancels the operation and returns an Operation with the result's properties", :vcr => { :match_requests_on => [:uri] } do
       created = subject.create(@mutation, @params)
